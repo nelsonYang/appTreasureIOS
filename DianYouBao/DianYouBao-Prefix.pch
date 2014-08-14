@@ -1,0 +1,70 @@
+#import <Availability.h>
+
+
+#ifndef __IPHONE_4_0
+#warning "This project uses features only available in iOS SDK 4.0 and later."
+#endif
+
+#ifdef __OBJC__
+
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <QuartzCore/QuartzCore.h>
+#import "RTLabel.h"
+#import "Dialog.h"
+#import "JSONKit.h"
+#import "ASIFormDataRequest.h"
+#import "NSString+MD5.h"
+#import "CommonParam.h"
+#import "TransformData.h"
+#import "SVProgressHUD.h"
+#import "ALToastView.h"
+#import "RefreshHeaderAndFooterView.h"
+#import "Base64.h"
+#import "Encryption.h"
+#import "UIImageView+WebCache.h"
+#import "AdManager.h"
+
+#endif
+
+#define iPhone5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
+#define kScreenHeight [UIScreen mainScreen].bounds.size.height
+#define kScreenWidth [UIScreen mainScreen].bounds.size.width
+#define SAFE_RELEASE(__POINTER) { [__POINTER release]; __POINTER = nil; }
+#define ASI_SAFE_RELEASE(_POINTER) { [_POINTER setDelegate:nil];[_POINTER cancel];[_POINTER release]; }
+#define kVersion @"1.0"
+
+#define DELEGATE_CALLBACK(DELEGATE, SEL) if (DELEGATE && [DELEGATE respondsToSelector:@selector(SEL)]) [DELEGATE performSelector:@selector(SEL)]
+#define DELEGATE_CALLBACK_ONE_PARAMETER(DELEGATE, SEL, X) if (DELEGATE && [DELEGATE respondsToSelector:@selector(SEL)]) [DELEGATE performSelector:@selector(SEL) withObject:X]
+
+#define kViewBgColor [UIColor colorWithRed:238.0/255.0 green:238.0/255.0 blue:238.0/255.0 alpha:1.0]
+
+//#ifdef DEBUG
+//#define //WLLog(format, ...) //WLLog(format, ## __VA_ARGS__)
+//#else
+//#define //WLLog(format, ...)
+//#endif
+
+
+#define kAppKey @"96ZJ2NHwzePYTwTAKs"
+#define ASI_SAFE_RELEASE(_POINTER) { [_POINTER setDelegate:nil];[_POINTER cancel];[_POINTER release]; }
+#define kServerUrl @"http://115.29.137.120/DianZhuan/ServiceServlet?"
+#define kRequestKey            @"requestKey"
+#define kRequestReq            @"request"
+#define kDataReq               @"data"
+#define kEncryptTypeReq        @"encryptType"
+#define kSignReq               @"sign"
+#define kMd5Req                @"2"
+#define kAESReq                @"1"
+#define kPlainReq              @"0"
+#define kRequestRes            @"request"
+#define kResultCodeRes         @"resultCode"
+#define kEncryptCodeRes        @"encryptCode"
+#define kPageCount             @"20"
+#define kPageCountReq          @"pageCount"
+#define kCurrentIndexReq       @"pageNo"
+#define kSessionReq            @"session"
+#define kReqSessionAndKeyDidFinish   @"sessionAndKeyDidFinish"
+#define kReqUserInfoDidFinish  @"userInfoDidFinish"
+#define kNotifyConsumedSuccess  @"NotifyConsumedSuccess"
+#define kNotifyConsumedFailed  @"NotifyConsumedFailed"
